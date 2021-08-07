@@ -1,7 +1,7 @@
 # SE-Project
 Software Engineering Project
 #Instructions to Install Git
-Step 1.Install Git Using this article: https://www.maketecheasier.com/install-git-bash-on-windows/
+Step 1. Install Git Using this article: https://www.maketecheasier.com/install-git-bash-on-windows/
 Step 2. Open Powershell
 Step 3. Write "git config --global user.name 'user-name'"
 Step 4. Write "git config --global user.email 'mail used to create git'"
@@ -12,3 +12,4 @@ Step 8. Press the New SSH Key button
 Step 9. Add your keys and save and exit browser.
 Step 10. Open Powershell in the location you want your project file to be in
 Step 11. Write "git clone git@github.com:pratyush-kr/SE-Project.git".
+Step 12. 
