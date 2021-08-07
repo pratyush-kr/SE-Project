@@ -1,0 +1,10 @@
+#Remove VS code config files
+.vscode
+#remove out files for linux
+*.out
+#remove .exe files for windows
+*.exe
+#remove temp file for MS-Office
+~$*
+#remove temp files from vscode runner
+*-out
