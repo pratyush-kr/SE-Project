@@ -8,3 +8,5 @@
 ~$*
 #remove temp files from vscode runner
 *-out
+#remove tempCodeRunnerFiles
+temp*.*
