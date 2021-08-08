@@ -1,8 +1,7 @@
-#include<iostream>
 class Book
 {
     private:
-        std::string book_name;
+        std::string name;
         std::string isbn;
         std::string author_name;
         unsigned int pages;
@@ -15,7 +14,7 @@ class Book
 std::istream& operator >>(std::istream &in, Book &book)
 {
     std::cout<<"Book Name: ";
-    std::getline(in, book.book_name);
+    std::getline(in, book.name);
     std::cout<<"ISBN: ";
     in>>book.isbn;
     std::cout<<"Author Name: ";
@@ -29,10 +28,10 @@ std::istream& operator >>(std::istream &in, Book &book)
 
 std::ostream& operator <<(std::ostream &out, const Book &book)
 {
-    printf("Book Name: %s\n", book.book_name);
-    printf("ISBN: %s\n", book.isbn);
-    printf("Author: %s\n", book.author_name);
-    printf("Pages: %d\n", book.pages);
-    printf("Price: ₹%.2f\n", book.price);
-    std::cout<<book.price<<'\n';
+    out<<"Book Name: "<<book.name<<'\n';
+    out<<"ISBN: "<<book.isbn<<'\n';
+    out<<"Author: "<<book.author_name<<'\n';
+    out<<"Pages: "<<book.pages<<'\n';
+    out<<"Price: ₹"<<book.price;
+    return out;
 }

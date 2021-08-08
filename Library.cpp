@@ -1,7 +1,3 @@
-#include "Book.cpp"
-#include "Member.cpp"
-#include<vector>
-
 class Library
 {
     private:
