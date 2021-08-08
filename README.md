@@ -1,2 +1,3 @@
 # SE-Project
-## Library management Software
+## Library management Software in C/C++
+### Features
