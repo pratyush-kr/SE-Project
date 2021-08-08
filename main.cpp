@@ -7,5 +7,6 @@
 
 int main()
 {
+    Library myLib("General Lib");
     return 0;
 }

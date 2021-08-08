@@ -6,6 +6,7 @@ class Book
         std::string author_name;
         unsigned int pages;
         float price;
+        unsigned int quantity;
     public:
         friend std::istream& operator >>(std::istream &, Book &);
         friend std::ostream& operator <<(std::ostream &, const Book &);
@@ -18,11 +19,14 @@ std::istream& operator >>(std::istream &in, Book &book)
     std::cout<<"ISBN: ";
     in>>book.isbn;
     std::cout<<"Author Name: ";
+    in.ignore();
     std::getline(in, book.author_name);
     std::cout<<"Pages: ";
     in>>book.pages;
     std::cout<<"Price: ";
     in>>book.price;
+    std::cout<<"Quantity: ";
+    in>>book.quantity;
     return in;
 }
 
