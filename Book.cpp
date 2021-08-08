@@ -29,9 +29,10 @@ std::istream& operator >>(std::istream &in, Book &book)
 
 std::ostream& operator <<(std::ostream &out, const Book &book)
 {
-    std::cout<<book.book_name<<'\n';
-    std::cout<<book.isbn<<'\n';
-    std::cout<<book.author_name<<'\n';
-    std::cout<<book.pages<<'\n';
+    printf("Book Name: %s\n", book.book_name);
+    printf("ISBN: %s\n", book.isbn);
+    printf("Author: %s\n", book.author_name);
+    printf("Pages: %d\n", book.pages);
+    printf("Price: ₹%.2f\n", book.price);
     std::cout<<book.price<<'\n';
 }
