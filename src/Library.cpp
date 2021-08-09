@@ -47,6 +47,7 @@ void Library::LendBook(Member *member, Book *book)
 {
     if(book->Qunatity() > 0) //Book->Quantity Checks for Quantity and reduces it by 1 and returns the present stock
     {
+        book->LendBook();
         member->Borrowed.push_back(book);
         book->Borrowers.push_back(member);
         return;
@@ -56,6 +57,13 @@ void Library::LendBook(Member *member, Book *book)
 
 void Library::ReturnBoook(Member *member, Book *book)
 {
-    for(int i=0; i<4; i++)
-    {}
+    for(int i=0; i<member->Borrowed.size(); i++)
+    {
+        if(book == member->Borrowed[i])
+        {
+            member->Borrowed.erase(member->Borrowed.begin()+i);
+            book->ReturnBook();
+            return;
+        }
+    }
 }

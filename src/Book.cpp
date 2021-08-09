@@ -12,6 +12,7 @@ class Book
         friend std::istream& operator >>(std::istream &, Book *); //Use Address before assigning any Refference
         friend std::ostream& operator <<(std::ostream &, const Book &);
         int Qunatity() {return (quantity > 0)? quantity--:0;}
+        void ReturnBook() {quantity++;}
 };
 
 std::istream& operator >>(std::istream &in, Book *book)
