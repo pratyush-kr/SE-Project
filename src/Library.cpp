@@ -10,8 +10,8 @@ class Library
         void ShowBook();
         void ShowMember();
         void LendBook(Member*, Book*);
-        void RemoveMember();
-        void ReturnBoook(Member*, Book*);
+        void RemoveMember(Member *);
+        void ReturnBook(Member*, Book*);
         Library() {}
         Library(const std::string &name)
         {
@@ -50,20 +50,31 @@ void Library::LendBook(Member *member, Book *book)
         book->LendBook();
         member->Borrowed.push_back(book);
         book->Borrowers.push_back(member);
+        printf("Lended %s to %s", book->Name(), member->Name());
         return;
     }
     std::cout<<"Book Not Available\n";
 }
 
-void Library::ReturnBoook(Member *member, Book *book)
+void Library::ReturnBook(Member *member, Book *book)
 {
     for(int i=0; i<member->Borrowed.size(); i++)
-    {
         if(book == member->Borrowed[i])
         {
+            printf("Book %s returned sucessfully\n", book->Name());
             member->Borrowed.erase(member->Borrowed.begin()+i);
             book->ReturnBook();
             return;
         }
-    }
+}
+
+void Library::RemoveMember(Member *member)
+{
+    for(int i=0; i<members.size(); i++)
+        if(members[i] == member)
+        {
+            printf("Deleted Member %s sucessfully\n", member->Name());
+            members.erase(members.begin() + i);
+            return;
+        }
 }

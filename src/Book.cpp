@@ -11,8 +11,10 @@ class Book
         std::vector<Member*> Borrowers;
         friend std::istream& operator >>(std::istream &, Book *); //Use Address before assigning any Refference
         friend std::ostream& operator <<(std::ostream &, const Book &);
-        int Qunatity() {return (quantity > 0)? quantity--:0;}
+        int Qunatity() {return quantity--;}
         void ReturnBook() {quantity++;}
+        void LendBook() {quantity--;}
+        std::string Name() {return name;}
 };
 
 std::istream& operator >>(std::istream &in, Book *book)
@@ -21,7 +23,7 @@ std::istream& operator >>(std::istream &in, Book *book)
     std::getline(in, book->name);
     std::cout<<"ISBN: ";
     in>>book->isbn;
-    BookbyISBN[book->isbn] = book;
+    BookBy[book->isbn] = book;
     std::cout<<"Author Name: ";
     in.ignore();
     std::getline(in, book->author_name);

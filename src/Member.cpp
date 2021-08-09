@@ -10,6 +10,7 @@ class Member
         std::vector<Book*> Borrowed;
         friend std::istream& operator >>(std::istream &, Member *);
         friend std::ostream& operator <<(std::ostream &, const Member &);
+        std::string Name() {return name;}
 };
 
 std::istream& operator >>(std::istream &in, Member *member)
@@ -18,7 +19,7 @@ std::istream& operator >>(std::istream &in, Member *member)
     in.ignore();
     std::getline(in, member->name);
     member->id = member->GenerateID();
-    MemberbyID[member->id] = member;
+    MemberBy[member->id] = member;
     std::cout<<"ID: "<<member->id<<'\n';
     std::cout<<"Phone: ";
     in>>member->phone_num;
