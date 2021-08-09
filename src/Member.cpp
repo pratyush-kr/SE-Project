@@ -11,6 +11,7 @@ class Member
         friend std::istream& operator >>(std::istream &, Member *);
         friend std::ostream& operator <<(std::ostream &, const Member &);
         std::string Name() {return name;}
+        std::string ID() {return id;}
 };
 
 std::istream& operator >>(std::istream &in, Member *member)
@@ -19,7 +20,6 @@ std::istream& operator >>(std::istream &in, Member *member)
     in.ignore();
     std::getline(in, member->name);
     member->id = member->GenerateID();
-    MemberBy[member->id] = member;
     std::cout<<"ID: "<<member->id<<'\n';
     std::cout<<"Phone: ";
     in>>member->phone_num;

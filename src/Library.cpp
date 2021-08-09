@@ -5,8 +5,8 @@ class Library
         std::vector<Book*> books;
         std::vector<Member*> members;
     public:
-        void AddBook();
-        void AddMember();
+        Book* AddBook();
+        Member* AddMember();
         void ShowBook();
         void ShowMember();
         void LendBook(Member*, Book*);
@@ -19,18 +19,20 @@ class Library
         }
 };
 
-void Library::AddBook()
+Book* Library::AddBook()
 {
     Book *book = new Book;
     std::cin>>book;
     books.push_back(book);
+    return book;
 }
 
-void Library::AddMember()
+Member* Library::AddMember()
 {
     Member *member = new Member;
     std::cin>>member;
     members.push_back(member);
+    return member;
 }
 
 void Library::ShowBook()
@@ -50,7 +52,7 @@ void Library::LendBook(Member *member, Book *book)
         book->LendBook();
         member->Borrowed.push_back(book);
         book->Borrowers.push_back(member);
-        printf("Lended %s to %s", book->Name(), member->Name());
+        printf("Lended %s to %s: ", (char*)&(book->Name())[0], (char*)&(member->Name())[0]);
         return;
     }
     std::cout<<"Book Not Available\n";
@@ -61,7 +63,7 @@ void Library::ReturnBook(Member *member, Book *book)
     for(int i=0; i<member->Borrowed.size(); i++)
         if(book == member->Borrowed[i])
         {
-            printf("Book %s returned sucessfully\n", book->Name());
+            printf("Book %s returned sucessfully\n", (char*)&(book->Name())[0]);
             member->Borrowed.erase(member->Borrowed.begin()+i);
             book->ReturnBook();
             return;
@@ -73,7 +75,7 @@ void Library::RemoveMember(Member *member)
     for(int i=0; i<members.size(); i++)
         if(members[i] == member)
         {
-            printf("Deleted Member %s sucessfully\n", member->Name());
+            printf("Deleted Member %s sucessfully\n", (char*)&(member->Name())[0]);
             members.erase(members.begin() + i);
             return;
         }

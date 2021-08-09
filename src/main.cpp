@@ -20,7 +20,11 @@ int main()
         if(command == "exit")
             break;
         else if(command == "add book")
-            myLib.AddBook();
+        {
+            Book *book;
+            book = myLib.AddBook();
+            BookBy[book->ISBN()] = book;
+        }
         else if(command == "show book")
             myLib.ShowBook();
         else if(command == "lend book")
@@ -42,7 +46,11 @@ int main()
             myLib.ReturnBook(MemberBy[ID], BookBy[ISBN]);
         }
         else if(command == "add member")
-            myLib.AddMember();
+        {
+            Member *member;
+            member = myLib.AddMember();
+            MemberBy[member->ID()] = member;
+        }
         else if(command == "remove member")
         {
             std::string ID;

@@ -1,3 +1,4 @@
+class Member;
 class Book
 {
     private:
@@ -15,6 +16,7 @@ class Book
         void ReturnBook() {quantity++;}
         void LendBook() {quantity--;}
         std::string Name() {return name;}
+        std::string ISBN() {return isbn;}
 };
 
 std::istream& operator >>(std::istream &in, Book *book)
@@ -23,7 +25,6 @@ std::istream& operator >>(std::istream &in, Book *book)
     std::getline(in, book->name);
     std::cout<<"ISBN: ";
     in>>book->isbn;
-    BookBy[book->isbn] = book;
     std::cout<<"Author Name: ";
     in.ignore();
     std::getline(in, book->author_name);
