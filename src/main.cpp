@@ -13,6 +13,7 @@ int main()
 {
     std::string command;
     Library myLib("General Lib");
+    printf("For help write: 'help'\n");
     while(1)
     {
         std::cout<<"Command: ";
