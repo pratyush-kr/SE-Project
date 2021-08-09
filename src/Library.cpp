@@ -37,12 +37,18 @@ Member* Library::AddMember()
 
 void Library::ShowBook()
 {
-    std::cout<<*books[0]<<'\n';
+    if(books.size() > 0)
+        std::cout<<*books[0]<<'\n';
+    else
+        std::cout<<"No Books available\n";
 }
 
 void Library::ShowMember()
 {
-    std::cout<<*members[0]<<'\n';
+    if(books.size() > 0)
+        std::cout<<*members[0]<<'\n';
+    else
+        std::cout<<"No Members available\n";
 }
 
 void Library::LendBook(Member *member, Book *book)
@@ -70,6 +76,16 @@ void Library::LendBook(Member *member, Book *book)
 
 void Library::ReturnBook(Member *member, Book *book)
 {
+    if(!member)
+    {
+        std::cout<<"Member not available\n";
+        return;
+    }
+    if(!book)
+    {
+        std::cout<<"No book registered with this ISBN\n";
+        return;
+    }
     for(int i=0; i<member->Borrowed.size(); i++)
         if(book == member->Borrowed[i])
         {
@@ -82,11 +98,14 @@ void Library::ReturnBook(Member *member, Book *book)
 
 void Library::RemoveMember(Member *member)
 {
-    for(int i=0; i<members.size(); i++)
-        if(members[i] == member)
-        {
-            printf("Deleted Member %s sucessfully\n", (char*)&(member->Name())[0]);
-            members.erase(members.begin() + i);
-            return;
-        }
+    if(member)
+        for(int i=0; i<members.size(); i++)
+            if(members[i] == member)
+            {
+                printf("Deleted Member %s sucessfully\n", (char*)&(member->Name())[0]);
+                members.erase(members.begin() + i);
+                return;
+            }
+    else
+        std::cout<<"No member with this PID\n";
 }
