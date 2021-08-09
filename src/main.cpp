@@ -4,6 +4,10 @@
 #include "Book.cpp"
 #include "Member.cpp"
 #include "Library.cpp"
+#include <map>
+
+std::map<std::string, Member*> MemberbyID;
+std::map<std::string, Book*> BookbyISBN;
 
 int main()
 {
@@ -15,6 +19,5 @@ int main()
     myLib.ShowBook();
     printf("THE MEMBER\n");
     myLib.ShowMember();
-
     return 0;
 }

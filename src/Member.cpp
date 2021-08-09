@@ -7,22 +7,24 @@ class Member
         std::string address;
         const std::string GenerateID();
     public:
-        friend std::istream& operator >>(std::istream &, Member &);
+        std::vector<Book*> Borrowed;
+        friend std::istream& operator >>(std::istream &, Member *);
         friend std::ostream& operator <<(std::ostream &, const Member &);
 };
 
-std::istream& operator >>(std::istream &in, Member &member)
+std::istream& operator >>(std::istream &in, Member *member)
 {
     std::cout<<"Name: ";
     in.ignore();
-    std::getline(in, member.name);
-    member.id = member.GenerateID();
-    std::cout<<"ID: "<<member.id<<'\n';
+    std::getline(in, member->name);
+    member->id = member->GenerateID();
+    MemberbyID[member->id] = member;
+    std::cout<<"ID: "<<member->id<<'\n';
     std::cout<<"Phone: ";
-    in>>member.phone_num;
+    in>>member->phone_num;
     std::cout<<"Address: ";
     in.ignore();
-    std::getline(in, member.address);
+    std::getline(in, member->address);
     return in;
 }
 

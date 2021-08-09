@@ -9,6 +9,9 @@ class Library
         void AddMember();
         void ShowBook();
         void ShowMember();
+        void LendBook(Member*, Book*);
+        void RemoveMember();
+        void ReturnBoook(Member*, Book*);
         Library() {}
         Library(const std::string &name)
         {
@@ -19,14 +22,14 @@ class Library
 void Library::AddBook()
 {
     Book *book = new Book;
-    std::cin>>*book;
+    std::cin>>book;
     books.push_back(book);
 }
 
 void Library::AddMember()
 {
     Member *member = new Member;
-    std::cin>>*member;
+    std::cin>>member;
     members.push_back(member);
 }
 
@@ -38,4 +41,21 @@ void Library::ShowBook()
 void Library::ShowMember()
 {
     std::cout<<*members[0]<<'\n';
+}
+
+void Library::LendBook(Member *member, Book *book)
+{
+    if(book->Qunatity() > 0) //Book->Quantity Checks for Quantity and reduces it by 1 and returns the present stock
+    {
+        member->Borrowed.push_back(book);
+        book->Borrowers.push_back(member);
+        return;
+    }
+    std::cout<<"Book Not Available\n";
+}
+
+void Library::ReturnBoook(Member *member, Book *book)
+{
+    for(int i=0; i<4; i++)
+    {}
 }
