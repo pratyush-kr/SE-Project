@@ -58,6 +58,17 @@ int main()
             std::cin>>ID;
             myLib.RemoveMember(MemberBy[ID]);
         }
+        else if(command == "help")
+        {
+            printf("Commands:\n");
+            printf("add book\n");
+            printf("add member\n");
+            printf("lend book\n");
+            printf("remove member\n");
+            printf("return book\n");
+            printf("show book\n");
+        }
+        std::cin.ignore();
     }
     return 0;
 }

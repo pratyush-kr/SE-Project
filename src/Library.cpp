@@ -47,6 +47,16 @@ void Library::ShowMember()
 
 void Library::LendBook(Member *member, Book *book)
 {
+    if(!member)
+    {
+        std::cout<<"Member not available\n";
+        return;
+    }
+    if(!book)
+    {
+        std::cout<<"No book registered with this ISBN\n";
+        return;
+    }
     if(book->Qunatity() > 0) //Book->Quantity Checks for Quantity and reduces it by 1 and returns the present stock
     {
         book->LendBook();
