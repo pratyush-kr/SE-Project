@@ -99,13 +99,16 @@ void Library::ReturnBook(Member *member, Book *book)
 void Library::RemoveMember(Member *member)
 {
     if(member)
+    {
         for(int i=0; i<members.size(); i++)
             if(members[i] == member)
             {
                 printf("Deleted Member %s sucessfully\n", (char*)&(member->Name())[0]);
+                delete member;
                 members.erase(members.begin() + i);
                 return;
             }
+    }
     else
         std::cout<<"No member with this PID\n";
 }

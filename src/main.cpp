@@ -56,7 +56,9 @@ int main()
             std::string ID;
             std::cout<<"MemberID: ";
             std::cin>>ID;
-            myLib.RemoveMember(MemberBy[ID]);
+            Member *member = MemberBy[ID];
+            MemberBy.erase(ID);
+            myLib.RemoveMember(member);
         }
         else if(command == "help")
         {
