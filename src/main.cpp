@@ -5,6 +5,7 @@
 #include "Book.cpp"
 #include "Member.cpp"
 #include "Library.cpp"
+#include <fstream>
 #include <map>
 
 std::map<std::string, Member*> MemberBy;
