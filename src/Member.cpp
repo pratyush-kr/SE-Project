@@ -17,7 +17,6 @@ class Member
 std::istream& operator >>(std::istream &in, Member *member)
 {
     std::cout<<"Name: ";
-    in.ignore();
     std::getline(in, member->name);
     member->id = member->GenerateID();
     std::cout<<"ID: "<<member->id<<'\n';
@@ -43,7 +42,7 @@ const std::string Member::GenerateID()
     char ID[6];
     srand(time(0));
     for(int i=0; i<5; i++)
-        ID[i] = (char)(rand() % 93 + 47);
+        ID[i] = (char)((rand() % 65) + 26);
     ID[5] = '\0';
     return (const std::string)ID;
 }

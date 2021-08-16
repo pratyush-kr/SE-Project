@@ -68,7 +68,7 @@ void Library::LendBook(Member *member, Book *book)
         book->LendBook();
         member->Borrowed.push_back(book);
         book->Borrowers.push_back(member);
-        printf("Lended %s to %s: ", (char*)&(book->Name())[0], (char*)&(member->Name())[0]);
+        std::cout<<"Lended "<<book->Name()<<" to "<<member->Name()<<'\n';
         return;
     }
     std::cout<<"Book Not Available\n";
